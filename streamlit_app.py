@@ -5,6 +5,11 @@ from stage import *
 from section import *
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(
+        page_title = "Program PTU",
+        page_icon = Image.open("icon.ico"),
+        layout = "wide",
+        initial_sidebar_state = "expanded")
 
 panel_global = st.sidebar.radio('Этапы расчета:', ["I. - Этап расчета ПТУ", "II. - Этап расчета ступеней ПТУ", "III. - Этап расчета по сечениям"])
 
