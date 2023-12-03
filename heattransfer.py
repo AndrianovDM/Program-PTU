@@ -2,7 +2,7 @@ from geometry import *
 from heattransferPlot import *
 from heattransferTable import *
 
-st.cache
+@st.cache
 def heattransfer(br):
     point_0_t_ = IAPWS97(P = br[0]['P_0_'], T = br[0]['t_0_'] + 273.15)
     t_0_t_, P_0_t_, h_0_t_, S_0_t_, V_0_t_, x_0_t_ = point_0_t_.T - 273.15, point_0_t_.P, point_0_t_.h, point_0_t_.s, point_0_t_.v, point_0_t_.x

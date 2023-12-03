@@ -5,7 +5,7 @@ from geometry import *
 from stagePlot import *
 from stageTable import *
 
-st.cache
+@st.cache
 def stage(br, geom, heat, P_0, t_0, x_0, C_0, G_0, alpha_0, value1_sopl = None, value1_rab = None, 
         value2_sopl = None, value2_rab = None, value3_sopl = None, value3_rab = None,
         coef_sopl = None, coef_rab = None, B_sopl = None, B_rab = None,

@@ -2,7 +2,7 @@ from breakdown import *
 from geometryPlot import *
 from geometryTable import *
 
-st.cache
+@st.cache
 def geometry(br, K_s, K_r, axial_clearance):
     
     d_vt_t = [(br[1]['D_k_2_i'][i] + 2*br[1]['height_2_i'][i]) / 2 for i in range(br[0]['number_of_steps'])]

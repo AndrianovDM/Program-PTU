@@ -2,7 +2,7 @@ from stage import *
 from sectionTable import *
 from sectionPlot import *
 
-st.cache
+@st.cache
 def spin_laws_stage(stg, num, sect, method):  
     radius_sopl_i = [(stg['h_sopl'][num] / (sect - 1)) * i + (stg['Dsr_sopl'][num] - stg['h_sopl'][num]) / 2 for i in range(sect)]
     radius_rab_i = [(stg['h_rab'][num] / (sect - 1)) * i + (stg['Dsr_rab'][num] - stg['h_rab'][num]) / 2 for i in range(sect)]
