@@ -449,13 +449,13 @@ if panel_global == "II. - Этап расчета ступеней ПТУ":
 
         if panel_2 == 'Параметры расчета по ступеням':
             st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Результаты расчета на среднем диаметре</ins></h1>", unsafe_allow_html=True)
-            with st.form(key = 'my_form_7'): 
-                st.session_state.stage_dict = {}
-                for n in st.session_state.paramstage[0].keys():
-                    st.session_state.stage_dict[n] = list(d[n] for d in st.session_state.paramstage)               
-                st.session_state.stage_list = list(st.session_state.stage_dict.values()) 
-                st.header('Результаты расчета параметров по ступеням') 
-                st.table(stageTable(st.session_state.stage_list))
+
+            st.session_state.stage_dict = {}
+            for n in st.session_state.paramstage[0].keys():
+                st.session_state.stage_dict[n] = list(d[n] for d in st.session_state.paramstage)               
+            st.session_state.stage_list = list(st.session_state.stage_dict.values()) 
+            st.header('Результаты расчета параметров по ступеням') 
+            st.table(stageTable(st.session_state.stage_list))
 
 if panel_global == "III. - Этап расчета по сечениям":
         st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Расчет ступени ПТУ по сечениям</ins></h1>", unsafe_allow_html=True)
