@@ -169,16 +169,12 @@ if panel_global == "I. - Этап расчета ПТУ":
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][11], method = 'Heat_difference'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][12], method = 'Heat_difference_new'))
 
-                    if st.download_button('Сохранить в Excel'):
-                        bdown = breakdown_CSP(P_0_ = st.session_state.aP_0_, t_0_ = st.session_state.at_0_, P_2_z =  st.session_state.aP_2_z, 
-                        G_0 = st.session_state.aG_0, G_z = st.session_state.aG_z, etta_oi = st.session_state.aetta_oi,
-                        rho_k_1 = st.session_state.arho_k_1, alfa_1_1 = st.session_state.aalfa_1_1, fi_1 = st.session_state.afi_1,
-                        rho_k_z = st.session_state.arho_k_z, alfa_1_z = st.session_state.aalfa_1_z, fi_z = st.session_state.afi_z, 
-                        D_k_2_1 = st.session_state.aD_k_2_1, D_k_2_z = st.session_state.aD_k_2_z, delta = st.session_state.adelta,
-                        n = st.session_state.an, method_1= st.session_state.method_form_s, i = st.session_state.ai)
-                        st.session_state.bdown = bdown
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[0], 'param_1'), name = 'Результаты расчета ЦСД', extension = '.xlsx')
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[2], 'param_2'), name = 'Распределение параметров по ступеням', extension = '.xlsx')
+                        st.download_button(
+                            label="Download Excel worksheets",
+                            data = Save_to_file_stage(breakdown_table(st.session_state.bdown[2], 'param_2'), name = 'Распределение параметров по ступеням', extension = '.xlsx'),
+                            file_name="pandas_multiple.xlsx",
+                            mime="application/vnd.ms-excel")
+                        
 
         if select_1 ==  'Расчет ЦНД':
             with st.form(key = 'my_form_3'):
