@@ -88,17 +88,6 @@ if panel_global == "I. - Этап расчета ПТУ":
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][11], method = 'Heat_difference'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][12], method = 'Heat_difference_new'))
                     
-                    if st.form_submit_button('Сохранить в Excel'):
-                        bdown = breakdown_CVP(P_0_ = st.session_state.vP_0_, t_0_ = st.session_state.vt_0_, P_2_z =  st.session_state.vP_2_z, 
-                        G_0 = st.session_state.vG_0, G_z = st.session_state.vG_z, etta_oi = st.session_state.vetta_oi,   
-                        rho_k_1 = st.session_state.vrho_k_1, alfa_1_1 = st.session_state.valfa_1_1, fi_1 = st.session_state.vfi_1,
-                        rho_k_z = st.session_state.vrho_k_z, alfa_1_z = st.session_state.valfa_1_z, fi_z = st.session_state.vfi_z, 
-                        D_sr_reg = st.session_state.vD_sr_reg, delta_D = st.session_state.vdelta_D, delta = st.session_state.vdelta,
-                        n = st.session_state.vn)
-                        st.session_state.bdown = bdown
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[0], 'param_1'), name = 'Результаты расчета ЦВД', extension = '.xlsx')
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[2], 'param_2'), name = 'Распределение параметров по ступеням', extension = '.xlsx')
-
         if select_1 ==  'Расчет ЦСД':
             with st.form(key = 'my_form_2'):
                     _aP_0_, _at_0_, _aP_2_z, = st.columns(3)
@@ -168,13 +157,6 @@ if panel_global == "I. - Этап расчета ПТУ":
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][8], method = 'X'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][11], method = 'Heat_difference'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][12], method = 'Heat_difference_new'))
-
-                        st.download_button(
-                            label="Download Excel worksheets",
-                            data = Save_to_file_stage(breakdown_table(st.session_state.bdown[2], 'param_2'), name = 'Распределение параметров по ступеням', extension = '.xlsx'),
-                            file_name="pandas_multiple.xlsx",
-                            mime="application/vnd.ms-excel")
-                        
 
         if select_1 ==  'Расчет ЦНД':
             with st.form(key = 'my_form_3'):
@@ -247,17 +229,6 @@ if panel_global == "I. - Этап расчета ПТУ":
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][11], method = 'Heat_difference'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][12], method = 'Heat_difference_new'))
                     
-                    if st.form_submit_button('Сохранить в Excel'):
-                        bdown = breakdown_CSP(P_0_ = st.session_state.lP_0_, t_0_ = st.session_state.lt_0_, P_2_z =  st.session_state.lP_2_z, 
-                        G_0 = st.session_state.lG_0, G_z = st.session_state.lG_z, etta_oi = st.session_state.letta_oi,
-                        rho_k_1 = st.session_state.lrho_k_1, alfa_1_1 = st.session_state.lalfa_1_1, fi_1 = st.session_state.lfi_1,
-                        rho_k_z = st.session_state.lrho_k_z, alfa_1_z = st.session_state.lalfa_1_z, fi_z = st.session_state.lfi_z, 
-                        D_k_2_1 = st.session_state.lD_k_2_1, D_k_2_z = st.session_state.lD_k_2_z, delta = st.session_state.ldelta,
-                        n = st.session_state.ln, method_1= st.session_state.method_form_l, i = st.session_state.li)
-                        st.session_state.bdown = bdown
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[0], 'param_1'), name = 'Результаты расчета ЦСД', extension = '.xlsx')
-                        Save_to_file_stage(breakdown_table(st.session_state.bdown[2], 'param_2'), name = 'Распределение параметров по ступеням', extension = '.xlsx')
-
     if panel_1 == "2. - Расчет геометрии ПТУ":
         st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Расчет геометрии ПТУ</ins> </h1>", unsafe_allow_html=True)
         
@@ -279,11 +250,6 @@ if panel_global == "I. - Этап расчета ПТУ":
                     st.header('Результаты расчета геометрии проточной части')
                     st.table(geometry_table(st.session_state.geom[2]))
 
-                if st.form_submit_button('Сохранить в Excel'):
-                    geom = geometry(br = st.session_state.bdown, K_s = st.session_state.K_s, K_r = st.session_state.K_r, axial_clearance = st.session_state.r_c)
-                    st.session_state.geom = geom
-                    Save_to_file_stage(geometry_table(st.session_state.geom[2]), name = 'Результаты расчета геометрии проточной части', extension = '.xlsx')
-
     if panel_1 == "3. - Расчет параметров по ступеням":
         st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Расчет параметров по ступеням</ins> </h1>", unsafe_allow_html=True)
         if st.session_state.bdown == None:
@@ -298,11 +264,6 @@ if panel_global == "I. - Этап расчета ПТУ":
                     st.header('Результаты расчета параметров по ступеням')
                     st.table(heattransfer_table(st.session_state.heat[1]))          
                 
-                if st.form_submit_button('Сохранить в Excel'):
-                    heat = heattransfer(br = st.session_state.bdown)
-                    st.session_state.heat = heat
-                    Save_to_file_stage(heattransfer_table(st.session_state.heat[1]), name = 'Результаты расчета параметров по ступеням', extension = '.xlsx')
-
 if panel_global == "II. - Этап расчета ступеней ПТУ":
     if st.session_state.bdown == None:
         st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Расчет ступени ПТУ на среднем диаметре</ins></h1>", unsafe_allow_html=True)
@@ -486,10 +447,6 @@ if panel_global == "II. - Этап расчета ступеней ПТУ":
                         st.header('Геометрические параметры профиля рабочей')
                         st.table(stage_table(st.session_state.stages[4], method = "profile rab"))
 
-                        Save_to_file_stage(stage_table(st.session_state.stages[0], method = 'parameters'), name = f'Ступень №{i+1} (Параметры на среднем диаметре)', extension = '.xlsx')
-                        Save_to_file_stage(stage_table(st.session_state.stages[3], method = "profile sopl"), name = f'Соплова геом. №{i+1}', extension = '.xlsx')
-                        Save_to_file_stage(stage_table(st.session_state.stages[4], method = "profile rab"), name = f'Рабочая геом. №{i+1}', extension = '.xlsx')
-
         if panel_2 == 'Параметры расчета по ступеням':
             st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Результаты расчета на среднем диаметре</ins></h1>", unsafe_allow_html=True)
             with st.form(key = 'my_form_7'): 
@@ -499,8 +456,6 @@ if panel_global == "II. - Этап расчета ступеней ПТУ":
                 st.session_state.stage_list = list(st.session_state.stage_dict.values()) 
                 st.header('Результаты расчета параметров по ступеням') 
                 st.table(stageTable(st.session_state.stage_list))
-                if st.form_submit_button('Сохранить в Excel'):
-                    Save_to_file_stage(stageTable(st.session_state.stage_list), name = 'Итоговые результаты расчета параметров по ступеням', extension = '.xlsx')
 
 if panel_global == "III. - Этап расчета по сечениям":
         st.markdown("<h1 style='text-align: center; color: #1C2833;'><ins>Расчет ступени ПТУ по сечениям</ins></h1>", unsafe_allow_html=True)
@@ -581,11 +536,6 @@ if panel_global == "III. - Этап расчета по сечениям":
                                                     M_1w_i = st.session_state.section[2][12], M_2w_i = st.session_state.section[2][13], 
                                                     fi_i = st.session_state.section[2][14], psi_i = st.session_state.section[2][15], 
                                                     num = i, sect = st.session_state.section[2][16], method = 'losses'))
-                            
-                            if st.form_submit_button('Сохранить в Excel'):
-                                section = spin_laws_stage(stg = st.session_state.stage_dict, num = i, sect = int(st.session_state.value_num_), method = st.session_state.method_section)
-                                st.session_state.section = section
-                                Save_to_file_stage(sectionTable(st.session_state.section[1]), name = f'Ступень №{i+1} (Параметры по сечениям)', extension = '.xlsx')
 
 
 
