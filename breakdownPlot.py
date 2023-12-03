@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 def breakdown_plot(x, y, k = None, z = None, method = None):
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (15, 5)) # параметры окна
     ax = plt.axes()
     plt.tick_params(axis = 'both', which = 'major', labelsize = 15, 
