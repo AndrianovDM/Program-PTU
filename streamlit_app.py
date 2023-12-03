@@ -168,8 +168,8 @@ if panel_global == "I. - Этап расчета ПТУ":
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][8], method = 'X'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][11], method = 'Heat_difference'))
                         st.pyplot(breakdown_plot(x = st.session_state.bdown[2][0], y = st.session_state.bdown[2][12], method = 'Heat_difference_new'))
-                    
-                    if st.form_submit_button('Сохранить в Excel'):
+
+                    if st.download_button('Сохранить в Excel'):
                         bdown = breakdown_CSP(P_0_ = st.session_state.aP_0_, t_0_ = st.session_state.at_0_, P_2_z =  st.session_state.aP_2_z, 
                         G_0 = st.session_state.aG_0, G_z = st.session_state.aG_z, etta_oi = st.session_state.aetta_oi,
                         rho_k_1 = st.session_state.arho_k_1, alfa_1_1 = st.session_state.aalfa_1_1, fi_1 = st.session_state.afi_1,
