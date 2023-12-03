@@ -5,7 +5,7 @@ import scipy as sp
 
 def flowpath_plot(dict):
 
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (20,10)) # параметры окна
     ax = plt.axes()
     plt.tick_params(axis='both', which='major', labelsize=20, 

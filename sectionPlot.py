@@ -5,7 +5,7 @@ from matplotlib.ticker import LinearLocator
 def velocity_triangle_i(C_1_i, W_1_i, U_1_i, alpha_1_i, betta_1_i,
                       C_2_i, W_2_i, U_2_i, alpha_2_i, betta_2_i, num):
     
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (15, 10)) # параметры окна
     ax = plt.axes()
     plt.tick_params(axis ='both', which='major', labelsize = 15, 
@@ -51,7 +51,7 @@ def parametrs(alpha_1_i, betta_1_i, alpha_2_i, betta_2_i,
         C_1_i, C_2_i, W_1_i, W_2_i, M_1c_i, M_2c_i, M_1w_i, M_2w_i, fi_i, psi_i, 
         num, sect, method = 'angle'):
    
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (15, 5)) # параметры окна
     ax = plt.axes()
     plt.tick_params(axis = 'both', which = 'major', labelsize = 15, 

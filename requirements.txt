@@ -2,3 +2,4 @@ scipy
 matplotlib
 sympy
 iapws
+openpyxl

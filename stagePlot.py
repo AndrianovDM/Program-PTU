@@ -171,7 +171,7 @@ def hs_stage_plot(point_0_, point_0, point_1t, point_1,
     point_vs = IAPWS97(h = point_2.h + delta_Htr + delta_Hlake + delta_Hvet + Delta_Hvs * (1 - kappa_vs), P = point_2.P) 
     point0_ = IAPWS97(h = point_2.h + delta_Htr + delta_Hlake + delta_Hvet + Delta_Hvs * (1 - kappa_vs) + ((sqrt(2e3 * Delta_Hvs * kappa_vs))**2 / 2e3), s = point_vs.s) 
 
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (15, 10)) # параметры окна
     ax = plt.axes()
     plt.xlim((point_0_.s - 0.003, point0_.s + 0.0035))
@@ -279,7 +279,7 @@ def hs_stage_plot(point_0_, point_0, point_1t, point_1,
 
 def velocity_triangle_plot(C_1, W_1, U_1, alpha_1, betta_1, C_2, W_2, U_2, alpha_2, betta_2, num):
 
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (15, 10)) # параметры окна
     ax = plt.axes()
     plt.tick_params(axis ='both', which='major', labelsize = 15, 

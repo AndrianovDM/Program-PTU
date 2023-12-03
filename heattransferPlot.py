@@ -33,7 +33,7 @@ def hs_plot(point_0_t_i_, point_2_t_i_, point_0_i, point_2_i, point_0_i_, point_
     h_2_i_ = [point_2_i_[i].h for i in range(len(point_2_i_))]
     s_2_i_ = [point_2_i_[i].s for i in range(len(point_2_i_))]
 
-    plt.style.use('seaborn-ticks') # задание стиля окна
+    # plt.style.use('seaborn-ticks') # задание стиля окна
     fig = plt.figure(figsize = (20, 15)) # параметры окна
     ax = plt.axes()
     plt.xlim((s_0_t_i_[0] - 0.03, s_2_i[len(s_2_i)-1] + 0.042))
